@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    container_name: docker-server
+    ports :
+      - "8000:8000"
+    volumes :
+      - .:/app
+      - /app/node_moudles
+    command: npm run start
