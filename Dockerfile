@@ -1,23 +1,23 @@
 #node version
 FROM node:18-alpine
 
-#setting working directory
+#set working directory
 WORKDIR /app
 
 #copying package related file to docker 
 COPY package*.json ./
 
-#install node_modules
+#install dependencies
 RUN npm install
 
-#copying everything to docker
+#copy source code to docker
 COPY . .
 
 #build app
 RUN npm run build
 
-#exposing to port
+#expose app port
 EXPOSE 8000
 
-#running app
+#run app
 CMD ["npm", "run", "start"]
